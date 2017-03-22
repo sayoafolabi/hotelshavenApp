@@ -4,55 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/beach"
+    android:background="@drawable/roller_coaster"
     android:fadingEdge="horizontal"
     android:orientation="vertical"
 tools:context="com.haven.hotels.hotelshaven.MainActivity">
 
 <!-- Text view for Hotels Haven Text -->
-<TextView
-    android:id="@+id/tv1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:paddingLeft="15dp"
-    android:paddingTop="40dp"
-    android:shadowColor="@android:color/black"
-    android:shadowDx="4"
-    android:shadowDy="4"
-    android:text="@string/app_name"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="@android:color/holo_purple"
-    android:textSize="50sp"
-    android:textStyle="bold|italic"
-    android:typeface="sans" />
+
+    <!--ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/banner" /-->
+
+
+    <!--LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/logo"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/logo72"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="40dp"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:text="@string/app_name"
+            android:layout_toRightOf="@id/logo"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+
+    </LinearLayout-->
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingTop="40dp"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
 
 <!-- Textview for Destination text -->
-<TextView
-    android:id="@+id/tv3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:paddingTop="30dp"
-    android:text="@string/destinationText"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="@android:color/holo_blue_dark"
-    android:textStyle="bold|italic"
-    android:typeface="serif" />
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="30dp"
+        android:text="@string/destinationText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textStyle="bold|italic"
+        android:typeface="serif" />
 
 <!-- Edit text for entering destination with hint -->
-<EditText
-    android:id="@+id/et1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:hint="@string/destinationPlaceholderText"
-    android:ems="10"
-    android:fadingEdgeLength="10dp"
-    android:inputType="text"
-    android:textAlignment="center" >
-    <requestFocus />
-</EditText>
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="@string/destinationPlaceholderText"
+        android:textColorHint="@android:color/white"
+        android:ems="10"
+        android:fadingEdgeLength="10dp"
+        android:inputType="text"
+        android:textAlignment="center" >
+        <requestFocus />
+    </EditText>
 
     <TableLayout
         android:id="@+id/tableLayout1"
@@ -68,13 +114,95 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
             android:layout_marginTop="15dp" >
 
             <TextView
+                android:id="@+id/checkinText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text="@string/checkInDate"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold|italic"
+                android:typeface="serif"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/checkoutText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:text="@string/checkOutDate"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold|italic"
+                android:typeface="serif"
+                android:textSize="18dp" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp" >
+
+            <EditText
+                android:id="@+id/checkinDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="@string/dateHintText"
+                android:textColorHint="@color/white"
+                android:layout_marginLeft="25dp"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/checkoutDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="@string/dateHintText"
+                android:textColorHint="@color/white"
+                android:layout_marginLeft="50dp"
+                android:inputType="date" />
+
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:calendarViewShown="true"
+                android:spinnersShown="false"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp" >
+
+            <TextView
                 android:id="@+id/adultText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:text="@string/adultGuest"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"
                 android:textStyle="bold|italic"
                 android:typeface="serif"
                 android:textSize="18dp" />
@@ -86,7 +214,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_marginLeft="56dp"
                 android:text="@string/childrenGuest"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"
                 android:textStyle="bold|italic"
                 android:typeface="serif"
                 android:textSize="18dp" />
@@ -98,7 +226,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_marginLeft="55dp"
                 android:text="@string/roomDropdown"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"
                 android:textStyle="bold|italic"
                 android:typeface="serif"
                 android:textSize="18dp" />
@@ -106,12 +234,12 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
         </TableRow>
     </TableLayout>
     <TableLayout
-        android:id="@+id/tableLayout2"
+        android:id="@+id/tableLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TableRow
-            android:id="@+id/tableRow2"
+            android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -124,7 +252,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_height="35dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
+                android:background="@android:color/white"
                 android:entries="@array/adultGuestArray" />
 
             <Spinner
@@ -133,7 +261,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_height="35dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
+                android:background="@android:color/white"
                 android:entries="@array/childrenGuestArray" />
 
             <Spinner
@@ -142,7 +270,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_height="35dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
+                android:background="@android:color/white"
                 android:entries="@array/roomArray" />
         </TableRow>
     </TableLayout>
@@ -156,8 +284,12 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
     android:layout_marginTop="20dp"
     android:fadingEdge="vertical"
     android:longClickable="true"
-    android:nextFocusRight="@color/black"
+    android:nextFocusRight="@android:color/holo_blue_dark"
     android:text="@string/submitButton"
+    android:textStyle="bold"
+    android:textSize="25dp"
+    android:background="@android:color/transparent"
+    android:textColor="@color/white"
     android:visibility="visible" />
 
 <!-- Text view for showing result -->

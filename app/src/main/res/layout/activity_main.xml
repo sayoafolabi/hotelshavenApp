@@ -52,7 +52,12 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
 
 
     </LinearLayout-->
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logo"
+        android:layout_gravity="center"
+        android:src="@drawable/tlogo44"/>
 
     <TextView
         android:id="@+id/tv1"
@@ -60,7 +65,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingLeft="15dp"
-        android:paddingTop="40dp"
+        android:paddingTop="10dp"
         android:shadowColor="@android:color/black"
         android:shadowDx="4"
         android:shadowDy="4"
@@ -281,7 +286,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
     android:layout_width="158dp"
     android:layout_height="51dp"
     android:layout_gravity="center"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="60dp"
     android:fadingEdge="vertical"
     android:longClickable="true"
     android:nextFocusRight="@android:color/holo_blue_dark"

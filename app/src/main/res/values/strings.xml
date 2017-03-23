@@ -71,6 +71,7 @@
     <string name="hotelscombinedUrl"></string>
     <string name="lateroomUrl"></string>
     <string name="interstitialText"></string>
+    <string name="url">www.hotelshaven.com</string>
 
 
 </resources>

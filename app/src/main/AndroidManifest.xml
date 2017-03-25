@@ -4,7 +4,6 @@
 
     <application
         android:allowBackup="true"
-        android:logo="@drawable/logo72"
         android:icon="@drawable/logo72"
         android:label="@string/app_name"
         android:supportsRtl="true"

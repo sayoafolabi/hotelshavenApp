@@ -66,8 +66,8 @@
     <string name="childrenAgesMultiple">Ages of children at checkout</string>
     <string name="childAgeSingle">Age of child at checkout</string>
     <string name="submitButton">Find Hotels</string>
-    <string name="destinationPlaceholderText">City, town or UK postcode</string>
-    <string name="dateHintText">DD/MM/YYYY</string>
+    <string name="destinationPlaceholderText">City, town, postcode</string>
+    <string name="dateHintText">dd MMM yyyy</string>
     <string name="hotelscombinedUrl"></string>
     <string name="lateroomUrl"></string>
     <string name="interstitialText"></string>

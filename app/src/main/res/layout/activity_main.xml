@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/roller_coaster"
+    android:background="@drawable/pool"
     android:fadingEdge="horizontal"
     android:orientation="vertical"
 tools:context="com.haven.hotels.hotelshaven.MainActivity">
@@ -52,7 +52,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
 
 <!-- Edit text for entering destination with hint -->
     <EditText
-        android:id="@+id/et1"
+        android:id="@+id/destinationedittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -74,7 +74,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="15dp" >
 
@@ -82,7 +82,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:id="@+id/checkinText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="5dp"
                 android:text="@string/checkInDate"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
@@ -94,7 +94,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:id="@+id/checkoutText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="75dp"
                 android:text="@string/checkOutDate"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
@@ -122,10 +122,12 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:ems="10"
-                android:hint="@string/dateHintText"
-                android:textColorHint="@color/white"
-                android:layout_marginLeft="25dp"
-                android:inputType="date" />
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginLeft="29dp"
+                android:textStyle="bold|italic"
+                android:typeface="serif"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/checkoutDate"
@@ -133,18 +135,13 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:ems="10"
-                android:hint="@string/dateHintText"
-                android:textColorHint="@color/white"
-                android:layout_marginLeft="50dp"
-                android:inputType="date" />
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:textStyle="bold|italic"
+                android:typeface="serif"
+                android:layout_marginLeft="48dp" />
 
-            <DatePicker
-                android:id="@+id/date_picker"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:calendarViewShown="true"
-                android:spinnersShown="false"
-                android:layout_weight="1"/>
         </TableRow>
     </TableLayout>
     <TableLayout
@@ -242,7 +239,7 @@ tools:context="com.haven.hotels.hotelshaven.MainActivity">
 
 <!-- Button for calculating the formula, when pressed, with calculate written over it -->
 <Button
-    android:id="@+id/ib1"
+    android:id="@+id/findhotels"
     android:layout_width="158dp"
     android:layout_height="51dp"
     android:layout_gravity="center"

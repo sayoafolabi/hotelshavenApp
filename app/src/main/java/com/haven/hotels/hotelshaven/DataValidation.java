@@ -1,7 +1,9 @@
 package com.haven.hotels.hotelshaven;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -53,33 +55,47 @@ public class DataValidation
 
     public Date getToday()
     {
-        today = new Date();
+        dateFormat = new SimpleDateFormat("dd MMM yy");
+
+        try
+        {
+            today = dateFormat.parse(dateFormat.format(new Date()));
+
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
         return today;
     }
 
     public boolean isTodayOrAfter(Date date)
     {
-        if (!(date.equals(getToday()) || date.after(getToday())))
-        {
-            return false;
-        }
+        return (date.equals(getToday())) || (date.after(getToday()));
 
-        return true;
     }
 
     public boolean checkOutDateGreaterThanCheckInDate(Date checkin, Date checkOut)
     {
-        if (!(checkOut.after(checkin)))
-        {
-            return false;
-        }
+        return checkOut.after(checkin);
+    }
 
-        return true;
+    public String numberOfNights(Date checkin, Date checkOut)
+    {
+
+        Calendar cin = Calendar.getInstance();
+        Calendar cout = Calendar.getInstance();
+
+        cin.setTime(checkin);
+        cout.setTime(checkOut);
+
+        int formate = cout.get(Calendar.DAY_OF_MONTH) - cin.get(Calendar.DAY_OF_MONTH);
+
+        return Integer.toString(formate);
     }
 
     public Date convertStringToDate(String dateString)
     {
-        dateFormat = new SimpleDateFormat("dd MMM yy", Locale.US);
+        dateFormat = new SimpleDateFormat("dd MMM yy");
 
         try
         {

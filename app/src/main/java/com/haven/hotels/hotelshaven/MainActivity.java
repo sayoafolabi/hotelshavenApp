@@ -86,23 +86,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     showPositiveAlert("Destination", "Please enter a destination");
                 }
-
-                if(!dataValidation.isTodayOrAfter(userCheckinDate))
+                else if(!dataValidation.isTodayOrAfter(userCheckinDate))
                 {
                     showPositiveAlert("Checkin Date", "Please have a second look at checkin date");
                 }
-
-                if(!dataValidation.checkOutDateGreaterThanCheckInDate(userCheckinDate, userCheckOutDate))
+                else if(!dataValidation.checkOutDateGreaterThanCheckInDate(userCheckinDate, userCheckOutDate))
                 {
                     showPositiveAlert("Checkout Date", "Checkout date must be after checkin date");
                 }
 
-
-                if(dataValidation.isUkPostcode(destinationText) || dataValidation.isUsPostcode(destinationText))
+                else if(dataValidation.isUkPostcode(destinationText) || dataValidation.isUsPostcode(destinationText))
                 {
                     //use laterooms
                     url = providersUrl.getLaterooms(adultText, childrenText, nights, urlCheckin, destinationText);
                     providerChosen = "Laterooms.com";
+                    storedValues.store("url", url);
+                    storedValues.store("provider", providerChosen);
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    startActivity(intent);
 
                 }
                 else
@@ -110,12 +111,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //use hotelscombined
                     url = providersUrl.getHotelsCombined(destinationText, cinText, coutText, adultText, roomText);
                     providerChosen = "HotelsCombined.com";
+                    storedValues.store("url", url);
+                    storedValues.store("provider", providerChosen);
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    startActivity(intent);
                 }
 
-                storedValues.store("url", url);
-                storedValues.store("provider", providerChosen);
-                Intent intent = new Intent(context, WebViewActivity.class);
-                startActivity(intent);
+
 
             }
         });
@@ -236,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // current activity
                         //MainActivity.this.finish();
                         dialog.cancel();
+
                     }
                 }) ;
 

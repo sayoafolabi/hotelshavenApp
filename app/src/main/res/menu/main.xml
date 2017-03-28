@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item  android:id="@+id/aboutus"
+        android:title="@string/about"/>
+    <item  android:id="@+id/t_c"
+        android:title="@string/terms"/>
+    <item  android:id="@+id/privacy"
+        android:title="@string/privacy"/>
 </menu>

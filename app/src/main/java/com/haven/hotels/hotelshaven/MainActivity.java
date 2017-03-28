@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -85,14 +87,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(dataValidation.isEmpty(destinationText))
                 {
                     showPositiveAlert("Destination", "Please enter a destination");
+                    return;
                 }
                 else if(!dataValidation.isTodayOrAfter(userCheckinDate))
                 {
-                    showPositiveAlert("Checkin Date", "Please have a second look at checkin date");
+                    showPositiveAlert("Checkin Date", "Checkin date cannot be in the past");
+                    return;
                 }
                 else if(!dataValidation.checkOutDateGreaterThanCheckInDate(userCheckinDate, userCheckOutDate))
                 {
                     showPositiveAlert("Checkout Date", "Checkout date must be after checkin date");
+                    return;
                 }
 
                 else if(dataValidation.isUkPostcode(destinationText) || dataValidation.isUsPostcode(destinationText))
@@ -282,5 +287,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialog.show();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.aboutus:
+                Intent intent = new Intent(this, AboutUsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.t_c:
+                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.privacy:
+                Toast.makeText(getApplicationContext(),"Item 3 Selected", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

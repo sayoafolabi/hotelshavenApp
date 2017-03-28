@@ -68,10 +68,15 @@
     <string name="submitButton">Find Hotels</string>
     <string name="destinationPlaceholderText">City, town, postcode</string>
     <string name="dateHintText">dd MMM yyyy</string>
+    <string name="about">About us</string>
+    <string name="terms">Terms and Conditions</string>
+    <string name="privacy">Privacy Policy</string>
     <string name="hotelscombinedUrl"></string>
     <string name="lateroomUrl"></string>
     <string name="interstitialText"></string>
     <string name="url">www.hotelshaven.com</string>
 
+    <!-- Huge Text for Policy and T%C -->
+    <string name="aboutus">Welcome to Hotels Haven!</string>
 
 </resources>

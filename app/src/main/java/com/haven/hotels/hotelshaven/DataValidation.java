@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +16,9 @@ import java.util.regex.Pattern;
 
 public class DataValidation
 {
+
+    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+
     final Pattern UK_POSTCODE = Pattern.compile("^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)" +
             "|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])" +
             "|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) " +
@@ -28,7 +32,7 @@ public class DataValidation
 
     public boolean isEmpty(String data)
     {
-        return data.isEmpty();
+        return data.trim().isEmpty();
     }
 
     public boolean isUkPostcode(String data)
@@ -55,7 +59,7 @@ public class DataValidation
 
     public Date getToday()
     {
-        dateFormat = new SimpleDateFormat("dd MMM yy");
+        dateFormat = new SimpleDateFormat("dd MMM yy", Locale.ENGLISH);
 
         try
         {
@@ -82,8 +86,8 @@ public class DataValidation
     public String numberOfNights(Date checkin, Date checkOut)
     {
 
-        Calendar cin = Calendar.getInstance();
-        Calendar cout = Calendar.getInstance();
+        Calendar cin = Calendar.getInstance(timeZone);
+        Calendar cout = Calendar.getInstance(timeZone);
 
         cin.setTime(checkin);
         cout.setTime(checkOut);
@@ -95,7 +99,7 @@ public class DataValidation
 
     public Date convertStringToDate(String dateString)
     {
-        dateFormat = new SimpleDateFormat("dd MMM yy");
+        dateFormat = new SimpleDateFormat("dd MMM yy", Locale.ENGLISH);
 
         try
         {

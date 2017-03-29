@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     StoredValues storedValues = new StoredValues();
     HhData hhData = new HhData();
     ProvidersUrl providersUrl = new ProvidersUrl();
+    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+
 
     private Button findHotels;
 
@@ -54,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dateFormatter = new SimpleDateFormat("dd MMM yy");
-        dateFormatterUrl = new SimpleDateFormat("yyyyMMdd");
-        dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormatter = new SimpleDateFormat("dd MMM yy", Locale.ENGLISH);
+        dateFormatterUrl = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
 
 
@@ -140,13 +143,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         checkinDate = (EditText) findViewById(R.id.checkinDate);
         checkinDate.setInputType(InputType.TYPE_NULL);
-        cin = Calendar.getInstance();
+        cin = Calendar.getInstance(timeZone);
         //cin.add(Calendar.DATE, 1);
         checkinDate.setText(dateFormatter.format(cin.getTime()));
 
         checkoutDate = (EditText) findViewById(R.id.checkoutDate);
         checkoutDate.setInputType(InputType.TYPE_NULL);
-        newDate = Calendar.getInstance();
+        newDate = Calendar.getInstance(timeZone);
         newDate.add(Calendar.DATE, 1);
         checkoutDate.setText(dateFormatter.format(newDate.getTime()));
 
@@ -169,11 +172,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         checkinDate.setOnClickListener(this);
         checkoutDate.setOnClickListener(this);
 
-        Calendar newCalendar = Calendar.getInstance();
+
+        Calendar newCalendar = Calendar.getInstance(timeZone);
         checkinDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                checkin = Calendar.getInstance();
+                checkin = Calendar.getInstance(timeZone);
                 checkin.set(year, monthOfYear, dayOfMonth);
                 checkinDate.setText(dateFormatter.format(checkin.getTime()));
             }
@@ -183,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         checkoutDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                checkout = Calendar.getInstance();
+                checkout = Calendar.getInstance(timeZone);
                 checkout.set(year, monthOfYear, dayOfMonth);
                 checkoutDate.setText(dateFormatter.format(checkout.getTime()));
             }
@@ -220,12 +224,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void getDataFromApp()
     {
-        destinationText =  hhData.getDestinationText();
-        checkinText = hhData.getCheckinText();
-        checkoutText = hhData.getCheckoutText();
-        adultText = hhData.getAdultText();
-        childrenText = hhData.getChildrenText();
-        roomText = hhData.getRoomText();
+        destinationText =  hhData.getDestinationText().trim();
+        checkinText = hhData.getCheckinText().trim();
+        checkoutText = hhData.getCheckoutText().trim();
+        adultText = hhData.getAdultText().trim();
+        childrenText = hhData.getChildrenText().trim();
+        roomText = hhData.getRoomText().trim();
     }
 
     private void showPositiveAlert(String title, String message)

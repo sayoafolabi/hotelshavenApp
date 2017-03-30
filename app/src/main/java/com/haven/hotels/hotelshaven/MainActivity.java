@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else if(!dataValidation.checkOutDateGreaterThanCheckInDate(userCheckinDate, userCheckOutDate))
                 {
-                    showPositiveAlert("Checkout Date", "     Checkout date must be after checkin date");
+                    showPositiveAlert("Checkout Date", "  Checkout date must be after checkin date");
                     return;
                 }
 

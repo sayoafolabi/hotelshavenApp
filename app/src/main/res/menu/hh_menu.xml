@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Single menu item
+         Set id, icon and Title for each menu item
+    -->
+    <item android:id="@+id/aboutus"
+        android:icon="@drawable/about48"
+        android:title="About us" />
+
+    <item android:id="@+id/cookie"
+        android:icon="@drawable/cookies48"
+        android:title="Cookie policy" />
+
+    <item android:id="@+id/privacy"
+        android:icon="@drawable/privacy48"
+        android:title="Privacy policy" />
+
+    <item android:id="@+id/term"
+        android:icon="@drawable/term48"
+        android:title="Terms" />
+
+    <item android:id="@+id/blog"
+        android:icon="@drawable/blog"
+        android:title="Blog" />
+
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
+</menu>

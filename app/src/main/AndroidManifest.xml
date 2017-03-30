@@ -23,10 +23,7 @@
         <activity
             android:name=".WebViewActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
-        <activity
-            android:name=".AboutUsActivity"
-            android:theme="@android:style/Theme.NoTitleBar" />
 
-        </application>
+    </application>
 
 </manifest>

@@ -11,7 +11,6 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         dateFormatter = new SimpleDateFormat("dd MMM yy", Locale.ENGLISH);
         dateFormatterUrl = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
         dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -89,17 +89,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(dataValidation.isEmpty(destinationText))
                 {
-                    showPositiveAlert("Destination", "Please enter a destination");
+                    showPositiveAlert("Destination", "        Oops! You forgot your destination");
                     return;
                 }
                 else if(!dataValidation.isTodayOrAfter(userCheckinDate))
                 {
-                    showPositiveAlert("Checkin Date", "Checkin date cannot be in the past");
+                    showPositiveAlert("Checkin Date", "       Checkin date cannot be in the past");
                     return;
                 }
                 else if(!dataValidation.checkOutDateGreaterThanCheckInDate(userCheckinDate, userCheckOutDate))
                 {
-                    showPositiveAlert("Checkout Date", "Checkout date must be after checkin date");
+                    showPositiveAlert("Checkout Date", "     Checkout date must be after checkin date");
                     return;
                 }
 
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.hh_menu, menu);
         return true;
     }
 
@@ -241,6 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialogBuilder
                 .setMessage(message)
                 .setCancelable(false)
+                .setIcon(R.drawable.ic_error_black_18dp)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // if this button is clicked, close
@@ -268,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialogBuilder
                 .setMessage(message)
                 .setCancelable(false)
+                .setIcon(R.drawable.ic_error_black_18dp)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // if this button is clicked, close
@@ -292,18 +294,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        switch (item.getItemId())
+        {
             case R.id.aboutus:
-                Intent intent = new Intent(this, AboutUsActivity.class);
-                startActivity(intent);
+                // Single menu item is selected do something
+                // Ex: launching new activity/screen or show alert message
+                Toast.makeText(MainActivity.this, "about us is Selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.t_c:
-                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+
+            case R.id.cookie:
+                Toast.makeText(MainActivity.this, "Cookie policy is Selected", Toast.LENGTH_SHORT).show();
                 return true;
+
             case R.id.privacy:
-                Toast.makeText(getApplicationContext(),"Item 3 Selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Privacy is Selected", Toast.LENGTH_SHORT).show();
                 return true;
+
+            case R.id.term:
+                Toast.makeText(MainActivity.this, "Term and Condition is Selected", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.blog:
+                Toast.makeText(MainActivity.this, "Blog is Selected", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.home:
+                Toast.makeText(MainActivity.this, "Home is Selected", Toast.LENGTH_SHORT).show();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

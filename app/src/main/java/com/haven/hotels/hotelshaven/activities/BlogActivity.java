@@ -1,11 +1,6 @@
-package com.haven.hotels.hotelshaven;
-
-/**
- * Created by AfolabSa on 27/03/2017.
- */
+package com.haven.hotels.hotelshaven.activities;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -13,27 +8,30 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class WebViewActivity extends Activity {
+import com.haven.hotels.hotelshaven.R;
 
+
+/**
+ * Created by AfolabSa on 07/04/2017.
+ */
+
+public class BlogActivity extends Activity
+{
     private WebView webView;
     ImageView imageView;
     TextView splashView;
-    StoredValues storedValues = new StoredValues();
-    String url, providerChosen, pText;
+    String url = "www.hotelshaven.com/blog";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview);
 
-        url = storedValues.get("url");
-        providerChosen = storedValues.get("provider");
-
         webView = (WebView) findViewById(R.id.webView1);
         imageView = (ImageView) findViewById(R.id.imgloader);
         splashView = (TextView) findViewById(R.id.splashTextView);
-        splashView.setText("You now being redirect to " + providerChosen + " for a great saving");
+        splashView.setText("You are now being redirected to Hotels Haven blog page which is a web content");
 
-        webView.setWebViewClient(new MyBrowser());
+        webView.setWebViewClient(new BlogActivity.MyBrowser());
         webView.clearCache(true);
         webView.clearHistory();
 
@@ -49,7 +47,7 @@ public class WebViewActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
 
-               // imageView.setVisibility(View.GONE);
+                // imageView.setVisibility(View.GONE);
 
                 splashView.setVisibility(View.GONE);
 
@@ -78,5 +76,4 @@ public class WebViewActivity extends Activity {
             return true;
         }
     }
-
 }

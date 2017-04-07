@@ -1,4 +1,4 @@
-package com.haven.hotels.hotelshaven;
+package com.haven.hotels.hotelshaven.other;
 
 /**
  * Created by AfolabSa on 27/03/2017.

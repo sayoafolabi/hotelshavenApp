@@ -7,7 +7,7 @@
     android:background="@drawable/pool"
     android:fadingEdge="horizontal"
     android:orientation="vertical"
-tools:context="com.haven.hotels.hotelshaven.MainActivity">
+tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
 
 <!-- Text view for Hotels Haven Text -->
 

@@ -1,4 +1,4 @@
-package com.haven.hotels.hotelshaven;
+package com.haven.hotels.hotelshaven.activities;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -11,12 +11,19 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.haven.hotels.hotelshaven.R;
+import com.haven.hotels.hotelshaven.other.DataValidation;
+import com.haven.hotels.hotelshaven.other.HhData;
+import com.haven.hotels.hotelshaven.other.ProvidersUrl;
+import com.haven.hotels.hotelshaven.other.StoredValues;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,6 +34,7 @@ import java.util.TimeZone;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     final Context context = this;
+    private WebView webView;
     private EditText destination, checkinDate, checkoutDate;
     private DatePickerDialog checkinDatePickerDialog, checkoutDatePickerDialog;
     private Spinner adultSpinner, childrenSpinner, roomSpinner;
@@ -56,19 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         dateFormatter = new SimpleDateFormat("dd MMM yy", Locale.ENGLISH);
         dateFormatterUrl = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
         dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
-
-
         findViewsById();
 
         setDateTimeField();
-
-
-
 
         findHotels.setOnClickListener(new View.OnClickListener() {
 
@@ -139,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void findViewsById()
     {
         destination = (EditText) findViewById(R.id.destinationedittext);
-
+        webView = (WebView) findViewById(R.id.webView1);
 
         checkinDate = (EditText) findViewById(R.id.checkinDate);
         checkinDate.setInputType(InputType.TYPE_NULL);
@@ -300,29 +302,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId())
         {
             case R.id.aboutus:
-                // Single menu item is selected do something
-                // Ex: launching new activity/screen or show alert message
-                Toast.makeText(MainActivity.this, "about us is Selected", Toast.LENGTH_SHORT).show();
+                Intent intentAbout = new Intent(context, AboutusActivity.class);
+                startActivity(intentAbout);
                 return true;
 
             case R.id.cookie:
-                Toast.makeText(MainActivity.this, "Cookie policy is Selected", Toast.LENGTH_SHORT).show();
+                Intent intentCookie = new Intent(context, CookieActivity.class);
+                startActivity(intentCookie);
                 return true;
 
             case R.id.privacy:
-                Toast.makeText(MainActivity.this, "Privacy is Selected", Toast.LENGTH_SHORT).show();
+                Intent intentPrivacy = new Intent(context, PrivacyPolicyActivity.class);
+                startActivity(intentPrivacy);
                 return true;
 
             case R.id.term:
-                Toast.makeText(MainActivity.this, "Term and Condition is Selected", Toast.LENGTH_SHORT).show();
+                Intent intentTerm = new Intent(context, TermsActivity.class);
+                startActivity(intentTerm);
                 return true;
 
-            case R.id.blog:
-                Toast.makeText(MainActivity.this, "Blog is Selected", Toast.LENGTH_SHORT).show();
-                return true;
+//            case R.id.blog:
+//                return true;
+//            case R.id.offers:
+//                Intent intentOffers = new Intent(context, OffersActivity.class);
+//                startActivity(intentOffers);
+//                return true;
 
             case R.id.home:
-                Toast.makeText(MainActivity.this, "Home is Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
                 return true;
 
             default:

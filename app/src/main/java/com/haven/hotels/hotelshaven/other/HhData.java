@@ -1,4 +1,4 @@
-package com.haven.hotels.hotelshaven;
+package com.haven.hotels.hotelshaven.other;
 
 import java.io.Serializable;
 

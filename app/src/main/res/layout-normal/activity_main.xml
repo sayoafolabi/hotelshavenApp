@@ -9,13 +9,6 @@
     android:orientation="vertical"
 tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
 
-    <supports-screens
-        android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
-        />
-
 <!-- Text view for Hotels Haven Text -->
 
     <ImageView
@@ -39,7 +32,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
-        android:textSize="50sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -92,46 +85,47 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
                 android:id="@+id/checkinText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="3dp"
                 android:text="@string/checkInDate"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
                 android:textStyle="bold|italic"
                 android:typeface="serif"
-                android:textSize="18dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/checkoutText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/checkOutDate"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:textStyle="bold|italic"
                 android:typeface="serif" />
         </TableRow>
     </TableLayout>
+
     <TableLayout
         android:id="@+id/tableLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="0dp" >
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="0dp">
 
             <EditText
                 android:id="@+id/checkinDate"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="18dp"
                 android:ems="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -144,7 +138,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:ems="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -154,6 +148,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
 
         </TableRow>
     </TableLayout>
+
     <TableLayout
         android:id="@+id/tableLayout3"
         android:layout_width="match_parent"
@@ -183,7 +178,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
                 android:id="@+id/childrenText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="56dp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/childrenGuest"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
@@ -195,7 +190,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
                 android:id="@+id/roomText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/roomDropdown"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/white"
@@ -253,7 +248,7 @@ tools:context="com.haven.hotels.hotelshaven.activities.MainActivity">
     android:layout_width="158dp"
     android:layout_height="51dp"
     android:layout_gravity="center"
-    android:layout_marginTop="60dp"
+    android:layout_marginTop="30dp"
     android:fadingEdge="vertical"
     android:longClickable="true"
     android:nextFocusRight="@android:color/holo_blue_dark"
